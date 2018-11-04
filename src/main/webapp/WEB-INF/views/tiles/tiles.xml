@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+  <definition name="baseLayout" template="/WEB-INF/views/tiles/baseLayout.jsp">
+      <put-attribute name="title"  value="Template"/>
+      <put-attribute name="header" value="/WEB-INF/views/tiles/tags/header.jsp"/>
+      <put-attribute name="menu"   value="/WEB-INF/views/tiles/tags/menu.jsp"/>
+      <put-attribute name="body"   value="/WEB-INF/views/tiles/tags/body.jsp"/>
+      <put-attribute name="footer"   value="/WEB-INF/views/tiles/tags/footer.jsp"/>
+      <put-attribute name="navbar"   value="/WEB-INF/views/tiles/tags/navbar.jsp"/>
+      <put-attribute name="ads"   value="/WEB-INF/views/tiles/tags/ads.jsp"/>
+  </definition>
+  
+  <definition name="welcome" extends="baseLayout">
+      <put-attribute name="title"  value="VSMSUI Administrative"/>
+      <put-attribute name="body"   value="/WEB-INF/views/views/welcome.jsp"/>      
+  </definition>
+  
+  <definition name="friends" extends="baseLayout">
+      <put-attribute name="title"  value="Friends"/>
+      <put-attribute name="body"   value="/WEB-INF/views/views/friends.jsp"/>      
+  </definition>
+  
+  <definition name="office" extends="baseLayout">
+      <put-attribute name="title"  value="Office"/>
+      <put-attribute name="body"   value="/WEB-INF/views/views/office.jsp"/>      
+  </definition>
+  
+</tiles-definitions>

@@ -1,0 +1,52 @@
+<b:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:b="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http use-expressions="true">
+		<intercept-url pattern="/auth" access="permitAll" />
+		<intercept-url pattern="/signin" access="permitAll" /> 
+		<intercept-url pattern="/signout" access="permitAll" />
+		<intercept-url pattern="/resources/**"
+			access="permitAll" />
+		<intercept-url pattern="/welcome"
+			access="isAuthenticated()" />
+		<intercept-url pattern="/welcome"
+			access="hasAnyRole('ROLE_USER','ROLE_ADMIN')" />
+
+		<form-login login-page='/auth'
+			default-target-url="/welcome"
+			authentication-failure-url="/auth?error=true"
+			login-processing-url="/signin"
+		/>
+		<logout logout-success-url="/auth" logout-url="/signout"
+			invalidate-session="true" delete-cookies="JSESSIONID,remember-me" />
+		<remember-me remember-me-cookie="remember-me"
+			remember-me-parameter="remember-me" token-validity-seconds="60" />
+		<session-management>
+			<concurrency-control
+				error-if-maximum-exceeded="true" 
+				expired-url="/auth?expired"
+				max-sessions="1"
+			/>
+		</session-management>
+		<csrf disabled="false" />
+	</http>
+
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<!-- Password is : pass -->
+				<user name="user"
+					password="$2a$04$p9A0ro7/Tk0.ZcU7zBPYBOHjogpLYc4X3vPpHTb7ZU99BEalQwaay"
+					authorities="ROLE_USER" />
+			</user-service>
+			<password-encoder ref="encoder" />
+		</authentication-provider>
+	</authentication-manager>
+
+	<b:bean id="encoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+	</b:bean>
+</b:beans>
