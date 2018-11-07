@@ -1,9 +1,1 @@
-# VSMSUI
-
-
-## Usage
-
-## Tutorials
-
-
-## Status
+This is the main readme file for VSMSUI
