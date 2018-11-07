@@ -20,8 +20,7 @@
 			authentication-failure-url="/auth?error=true"
 			login-processing-url="/signin"
 		/>
-		<logout logout-success-url="/auth" logout-url="/signout"
-			invalidate-session="true" delete-cookies="JSESSIONID,remember-me" />
+		
 		<remember-me remember-me-cookie="remember-me"
 			remember-me-parameter="remember-me" token-validity-seconds="60" />
 		<session-management>
@@ -32,6 +31,7 @@
 			/>
 		</session-management>
 		<csrf disabled="false" />
+		<logout logout-success-url="/auth?logout" logout-url="/signout" delete-cookies="JSESSIONID"/>
 	</http>
 
 	<authentication-manager>

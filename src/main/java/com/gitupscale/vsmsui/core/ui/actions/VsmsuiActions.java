@@ -14,7 +14,8 @@ public class VsmsuiActions extends ActionSupport {
 	private String _csrf;
 	
 	public String welcome() {
-		logger.info("Welcome action fired");
+		
+		logger.info("Welcome "+getUsername()+" csrf: "+get_csrf());
 		return "success";
 	}
 	

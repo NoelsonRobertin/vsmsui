@@ -1,17 +1,38 @@
-// global vars
+
 var winWidth = $(window).width();
 var winHeight = $(window).height();
 
-// set initial div height / width
-$('div').css({
-    'width': winWidth,
-'height': winHeight,
+//alert("Nandalo teto");
+
+$('#menu-div').css({
+	'height' : winHeight,
+});
+$('#body-div').css({
+	'height' : winHeight,
+});
+$('#ads-div').css({
+	'height' : winHeight,
+});
+$(window).resize(function() {
+	$('#menu-div').css({
+		'height' : winHeight,
+	});
+	$('#body-div').css({
+		'height' : winHeight,
+	});
+	$('#ads-div').css({
+		'height' : winHeight,
+	});
 });
 
-// make sure div stays full width/height on resize
-$(window).resize(function(){
-    $('div').css({
-    'width': winWidth,
-    'height': winHeight,
-});
+$(document).ready(function() {
+	$('#menu-div').css({
+		'height' : winHeight,
+	});
+	$('#body-div').css({
+		'height' : winHeight,
+	});
+	$('#ads-div').css({
+		'height' : winHeight,
+	});
 });

@@ -1,4 +1,5 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -13,7 +14,7 @@
 <link rel="stylesheet" href="resources/css/main.css">
 <script src="resources/js/jquery.min.js"></script>
 <script src="resources/js/bootstrap.min.js"></script>
-
+<script src="resources/js/script.js"></script>
 </head>
 <body>
 
@@ -22,14 +23,14 @@
 
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-2 sidenav">
+			<div class="col-sm-2 sidenav" id="menu-div">
 				<tiles:insertAttribute name="menu" />
 			</div>
-			<div class="col-sm-8 text-left">
-				<tiles:insertAttribute name="body" />
+			<div class="col-sm-8 text-left" id="body-div">
+				<tiles:insertAttribute name="body"/>
 			</div>
-			<div class="col-sm-2 sidenav">
-				<tiles:insertAttribute name="ads" />
+			<div class="col-sm-2 sidenav" id="ads-div">
+				<tiles:insertAttribute name="ads"/>
 			</div>
 		</div>
 	</div>
